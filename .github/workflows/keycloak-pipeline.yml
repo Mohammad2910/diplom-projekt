@@ -1,1 +1,23 @@
+name: Keycloak pipeline
+on:
+  push:
+    branches: [ "master" ]
+    paths: 
+      - 'keycloak'
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
 
+jobs:
+ build-and-deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Image prune
+        run: sudo docker image prune -f
+      - name: docker build
+        working-directory: ./deployment
+        run: sudo docker-compose build keycloak
+      - name: docker-compose up
+        working-directory: ./deployment
+        run: sudo docker-compose up -d keycloak

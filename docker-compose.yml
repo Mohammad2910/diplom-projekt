@@ -23,3 +23,10 @@ services:
     command:
       - start-dev
       - --proxy=passthrough
+
+  frontend:
+    build: frontend
+    image: frontend
+    container_name: frontend
+    ports:
+      - 4200:4200

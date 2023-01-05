@@ -6,6 +6,7 @@ on:
       - 'frontend'
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
  build-and-deploy:

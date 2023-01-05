@@ -2,7 +2,7 @@ version: '3'
 services:
   keycloak:
     image: quay.io/keycloak/keycloak:20.0.2
-    container_name: keycloak-compose
+    container_name: keycloak
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin

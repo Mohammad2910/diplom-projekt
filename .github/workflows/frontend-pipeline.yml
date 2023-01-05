@@ -14,9 +14,9 @@ jobs:
     steps:
       - name: Image prune
         run: sudo docker image prune -f
-      - name: docker build
-        working-directory: ./deployment
-        run: sudo docker-compose build frontend
-      - name: docker-compose up
-        working-directory: ./deployment
-        run: sudo docker-compose up -d frontend
+      #- name: docker build
+       # working-directory: ./deployment
+        #run: sudo docker-compose build frontend
+      #- name: docker-compose up
+      #  working-directory: ./deployment
+      #  run: sudo docker-compose up -d frontend

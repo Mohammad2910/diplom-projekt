@@ -30,3 +30,14 @@ services:
     container_name: frontend
     ports:
       - 4200:4200
+
+  e2e:
+    build: ../e2e
+    image: e2e
+    container_name: e2e
+    environment:
+      - CYPRESS_baseUrl=https://projekt-mohammad.ddns.net
+    command: npx cypress run
+    volumes:
+      - ../e2e/cypress:/app/cypress
+      - ../e2e/cypress.config.js:/app/cypress.config.js

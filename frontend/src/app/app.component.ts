@@ -19,8 +19,6 @@ export class AppComponent implements OnInit {
   public async ngOnInit(){
     this.isLoggedin = await this.keycloak.isLoggedIn();
 
-    // type roleUsers = Array<{id: number, text: string}>;
-
     if (this.isLoggedin) {
       let token = this.keycloak.getKeycloakInstance().token;
       console.log(token);

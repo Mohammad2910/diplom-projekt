@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 })
 /**
  * Home screen class
- * This is an empty class but contains all other relevant components defined in the html
+ * This is an empty class but contains all other relevant components defined in the html.
  */
 export class HomeComponent {
 

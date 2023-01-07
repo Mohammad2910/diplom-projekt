@@ -3,7 +3,7 @@ name: Backend Pipeline
 on:
   push:
     branches: [ "master" ]
-    path:
+    paths:
     - "backend/**"
   pull_request:
     branches: [ "master" ]
@@ -24,8 +24,10 @@ jobs:
       with:
           java-version: 1.17
     - name: Build with Maven
+      working-directory: ./backend
       run: mvn -B package --file pom.xml
     - name: Test with Maven
+      working-directory: ./backend
       run: mvn -B test --file pom.xml
 
   build:
@@ -36,6 +38,8 @@ jobs:
     - name: backend
       run: sudo docker image prune -f
     - name: compose build
+      working-directory: ./deployment
       run: sudo docker-compose build backend
     - name: compose up
+      working-directory: ./deployment
       run: sudo docker-compose up -d backend

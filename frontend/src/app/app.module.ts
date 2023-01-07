@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
 import {AuthGuard} from "./auth.guard";
 import { UsersComponent } from './users/users.component';
+import {UserService} from "./users/user.service";
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -43,7 +44,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService]
-  }],
+  },
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

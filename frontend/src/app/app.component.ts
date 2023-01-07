@@ -1,8 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {KeycloakProfile} from "keycloak-js";
 import {KeycloakService} from "keycloak-angular";
 import {Router} from "@angular/router";
-import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -26,7 +25,6 @@ export class AppComponent implements OnInit {
       let token = this.keycloak.getKeycloakInstance().token;
       console.log(token);
       localStorage.setItem('token', JSON.stringify(token));
-      this.profile = await this.keycloak.loadUserProfile();
       this.router.navigate(['/', 'home']);
     } else {
       this.loginSession();

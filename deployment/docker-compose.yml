@@ -30,6 +30,13 @@ services:
     container_name: frontend
     ports:
       - 4200:4200
+  
+  backend:
+    build: ../backend
+    image: backend
+    container_name: backend
+    ports:
+      - 8081:8081
 
   e2e:
     build: ../e2e

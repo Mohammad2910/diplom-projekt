@@ -18,7 +18,7 @@ export class UserService {
   }
 
   getUsers(): Observable<User[]> {
-    const url = 'http://localhost:8081/api/users';
+    const url = 'https://projekt-mohammad.ddns.net/api/users';
     const options = {headers: this.getAuthHeader()};
 
     return this.httpClient.get<[]>(url, options);

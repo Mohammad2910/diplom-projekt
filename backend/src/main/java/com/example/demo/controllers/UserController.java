@@ -15,7 +15,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    public UserService userService;
+    private UserService userService;
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
